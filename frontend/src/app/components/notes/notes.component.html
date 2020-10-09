@@ -1,0 +1,17 @@
+<app-create-note (create)="createNote()"></app-create-note>
+
+<mat-card *ngFor="let note of notes$ | async">
+  <button *ngIf="note.user === userId" mat-icon-button>
+    <mat-icon (click)="delete(note.id)" color="warn">delete</mat-icon>
+  </button>
+  <div class="title">
+    {{ note.title }}
+  </div>
+  <div class="meta">
+    {{ note.created }}
+  </div>
+  <div class="body">
+    {{ note.body }}
+  </div>
+</mat-card>
+
